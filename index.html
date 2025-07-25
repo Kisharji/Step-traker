@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Step Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Step Tracker</h1>
+
+    <form method="POST">
+        <label>Height (cm):</label>
+        <input type="number" name="height" required><br>
+        <label>Steps to Add:</label>
+        <input type="number" name="steps" required><br>
+        <button type="submit">Update Steps</button>
+    </form>
+
+    <h2>Today's Summary</h2>
+    <p>Steps: {{ steps }}</p>
+    <p>Distance: {{ distance }} meters</p>
+    <p>Calories Burned: {{ calories }} kcal</p>
+
+    <h2>History</h2>
+    <ul>
+    {% for day, entry in data.items() %}
+        <li>{{ day }} - {{ entry.steps }} steps</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
